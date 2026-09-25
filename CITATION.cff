@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use concavewrap-geo, please cite this software."
+title: "concavewrap-geo"
+version: 0.1.0
+authors:
+  - family-names: Nikitina
+    given-names: Alena
+license: Apache-2.0

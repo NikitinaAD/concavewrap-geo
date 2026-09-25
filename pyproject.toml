@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "concavewrap-geo"
+version = "0.1.0"
+description = "Auditable concave hulls that cover complete polygon areas"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Alena Nikitina"}]
+keywords = ["gis", "geospatial", "polygon", "concave-hull", "shapely"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = ["geopandas>=0.14", "shapely>=2.0,<3", "pyproj>=3.6"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-cov>=5", "ruff>=0.8"]
+
+[project.urls]
+Homepage = "https://github.com/NikitinaAD/concavewrap-geo"
+Repository = "https://github.com/NikitinaAD/concavewrap-geo"
+Issues = "https://github.com/NikitinaAD/concavewrap-geo/issues"
+
+[project.scripts]
+concavewrap = "concavewrap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=concavewrap --cov-report=term-missing --cov-fail-under=85"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

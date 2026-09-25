@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" role="img" aria-labelledby="title desc">
+  <title id="title">Polygon patches converted to a concave hull</title>
+  <desc id="desc">Four polygon patches on the left and a covering concave hull with the source areas on the right.</desc>
+  <rect width="960" height="330" fill="#f8fafc"/>
+  <text x="70" y="42" font-family="sans-serif" font-size="22" font-weight="700" fill="#0f172a">Input polygon patches</text>
+  <text x="610" y="42" font-family="sans-serif" font-size="22" font-weight="700" fill="#0f172a">Verified concave hull</text>
+  <g fill="#60a5fa" stroke="#1d4ed8" stroke-width="3">
+    <rect x="80" y="85" width="90" height="170" rx="3"/>
+    <rect x="170" y="85" width="205" height="50" rx="3"/>
+    <rect x="320" y="135" width="55" height="75" rx="3"/>
+    <rect x="170" y="215" width="95" height="40" rx="3"/>
+  </g>
+  <path d="M585 255 L585 85 L880 85 L880 210 L805 210 L805 165 L675 165 L675 255 Z" fill="#99f6e4" stroke="#0f766e" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#60a5fa" fill-opacity="0.75" stroke="#1d4ed8" stroke-width="2">
+    <rect x="585" y="85" width="90" height="170" rx="3"/>
+    <rect x="675" y="85" width="205" height="50" rx="3"/>
+    <rect x="825" y="135" width="55" height="75" rx="3"/>
+    <rect x="675" y="215" width="95" height="40" rx="3"/>
+  </g>
+  <path d="M455 165 H520" stroke="#334155" stroke-width="5"/>
+  <path d="M510 150 L530 165 L510 180" fill="none" stroke="#334155" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="303" y="303" font-family="sans-serif" font-size="17" fill="#475569">The output covers every source area and stays inside the convex hull.</text>
+</svg>
