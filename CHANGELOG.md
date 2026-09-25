@@ -6,3 +6,4 @@
 - Add global, grouped, and disconnected-component scopes.
 - Add hole, invalid-geometry, and convex-fallback policies.
 - Add GeoPackage output, JSON diagnostics, CLI, Python API, and synthetic tests.
+- Add executable forest-patch, large-gap, narrow-neck, and hole-policy examples.

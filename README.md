@@ -31,19 +31,33 @@ features, and any convex fallback.
 
 ## Reproducible example
 
-Create synthetic polygon patches arranged around a concavity, then build one hull:
+Generate and process four synthetic polygon arrangements, including the failure
+modes that commonly make a single concave-hull setting misleading:
 
 ```bash
-python examples/make_example.py
-concavewrap build examples/forest-patches.gpkg \
-  --layer patches \
-  --ratio 0.25 \
-  --output examples/forest-hull.gpkg \
-  --diagnostics examples/forest-hull.json
+python examples/run_examples.py
 ```
 
-Expected audit values for the example are printed by the script and can be
-recomputed from the resulting files. No external or real-world data is used.
+| scenario | question answered | expected result |
+|---|---|---|
+| `forest-patches` | can irregular areal patches be wrapped without cutting them? | one hull that covers every complete polygon |
+| `large-gap` | should disconnected patches be bridged? | `global` gives one hull; `component` gives two |
+| `narrow-neck` | does a thin connecting polygon remain covered? | one valid hull covering the neck and both ends |
+| `ring-with-hole` | should a semantic hole remain open? | `allow_holes=True` keeps it; the default fills it |
+
+Generated inputs, outputs, and JSON reports are placed under
+`examples/generated/`. To run the standard case through the CLI:
+
+```bash
+concavewrap build examples/generated/forest-patches.gpkg \
+  --layer areas \
+  --ratio 0.25 \
+  --output examples/generated/forest-hull-cli.gpkg \
+  --diagnostics examples/generated/forest-hull-cli.json
+```
+
+Expected audit values are printed and asserted by the script, then saved in
+`summary.json`. No external or real-world data is used.
 
 ## Ratio and policies
 
@@ -126,6 +140,9 @@ and `HullDiagnostic`.
 
 Run `concavewrap --help` for all options. Exit code `0` means success and `2`
 means invalid input or a processing failure.
+
+The pre-release and launch checks are listed in
+[`docs/release-checklist.md`](docs/release-checklist.md).
 
 ## Development
 

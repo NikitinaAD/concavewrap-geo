@@ -10,5 +10,8 @@ htmlcov/
 build/
 dist/
 *.egg-info/
-examples/*.gpkg
-examples/*.json
+examples/generated/
+# Legacy locations produced by the original one-case example.
+examples/forest-hull.gpkg
+examples/forest-hull.json
+examples/forest-patches.gpkg

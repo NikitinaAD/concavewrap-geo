@@ -24,6 +24,7 @@ jobs:
       - run: python -m ruff check .
       - run: python -m ruff format --check .
       - run: python -m pytest
+      - run: python examples/run_examples.py
 
   package:
     runs-on: ubuntu-latest
@@ -35,9 +36,10 @@ jobs:
       - run: python -m pip install build twine
       - run: python -m build
       - run: python -m twine check dist/*
-      - run: python -m pip install --force-reinstall dist/*.whl
-      - run: concavewrap --version
-      - run: concavewrap --help
+      - run: python -m venv .wheel-check
+      - run: .wheel-check/bin/python -m pip install dist/*.whl
+      - run: .wheel-check/bin/concavewrap --version
+      - run: .wheel-check/bin/concavewrap --help
 
   required:
     if: always()
