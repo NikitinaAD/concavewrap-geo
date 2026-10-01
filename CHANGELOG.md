@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — unreleased
+## 0.1.0 — 2026-10-01
 
 - Add polygon-safe concave hull construction with explicit ratio semantics.
 - Add global, grouped, and disconnected-component scopes.
